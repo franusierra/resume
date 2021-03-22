@@ -12,8 +12,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: resume
-      - name: Change directory
-        run: cd resume/out
+          
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -22,7 +21,7 @@ jobs:
           aws-region: ${{ secrets.RESUME_S3_BUCKET_REGION }}
 
       - name: Deploy resumes to S3 bucket
-        run: aws s3 sync . s3://${{ secrets.RESUME_S3_BUCKET }} --delete
+        run: cd resume/out; aws s3 sync . s3://${{ secrets.RESUME_S3_BUCKET }} --delete
       
       - name: Invalidate cloudfront cache
         run: aws cloudfront create-invalidation --distribution-id  ${{ secrets.PERSONAL_WEBSITE_CLOUDFRONT_DISTRIBUTION_ID }} --paths '/resume*.pdf'
