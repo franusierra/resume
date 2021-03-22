@@ -52,7 +52,7 @@
 \RequirePackage{fontawesome}
 \RequirePackage{academicons}
 \RequirePackage{graphbox}
-
+\RequirePackage{anyfontsize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FILTER IRRELEVANT WARNINGS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -263,7 +263,7 @@
                 \end{minipage}%
                 \vfill%
                 \begin{minipage}[b][\dimexpr \headerheight-2em-\marginbottom]{\linewidth}%
-                    {\large\bfseries\color{headerfontcolor}\@tagline\par}
+                    {\fontsize{14}{16}\selectfont\bfseries\color{headerfontcolor}\@tagline\par}
                 \end{minipage}%
         % finish the minipages for text and photo if photo is given
         \ifdef{\@photodiameter}{%
@@ -298,8 +298,8 @@
 \newcommand{\address}[1]{\infofield{\faAt}{#1}}
 \newcommand{\location}[1]{\infofield{\faMapMarker}{#1}}
 \newcommand{\phone}[1]{\infofield{\faPhone}{#1}}
-\newcommand{\homepage}[2]{\infofield{\faHome}{\href{#2}{#1}}}
-\newcommand{\linkedin}[2]{\infofield{\faLinkedin}{\href{#2}{#1}}}
+\newcommand{\homepage}[2]{\infofield{\faGlobe}{\href{#2}{#1}}}
+\newcommand{\linkedin}[2]{\infofield{\faLinkedin}{\href{#2}{#1}}\par}
 \newcommand{\github}[2]{\infofield{\faGithub}{\href{#2}{#1}}}
 \newcommand{\orcid}[2]{\infofield{\aiOrcid}{\href{#2}{#1}}}
 \newcommand{\ads}[2]{\infofield{\aiADS}{\href{#2}{#1}}}
@@ -322,7 +322,7 @@
 \newcommand{\mainbar}[1]{%
     \def\@mainbar{%
         \begin{minipage}[t]{\dimexpr \textwidth-\highlightwidth}%
-            #1%
+            \begin{large}#1 \end{large}
         \end{minipage}%
     }
 }
@@ -355,9 +355,9 @@
 
 % redefine section in caps, bold and with rule below
 \renewcommand{\section}[2][]{%
-    \bigskip%
+    \vspace{9pt}%
     % \ifstrequal{#1}{}{}{\marginpar{\vspace*{\dimexpr 1pt-\baselineskip}\raggedright\input{#1}}}%
-    \ifstrequal{#1}{}{}{\large \makebox[5mm][c]{#1}\hspace{0.5em}}
+    \ifstrequal{#1}{}{}{\large \makebox[5mm][c]{#1}\hspace{0.1em}}
     {\color{heading}\Large\bfseries\MakeUppercase{#2}}\\[-1ex]%
     {\color{heading}\rule{\linewidth}{1.0pt}\par}\smallskip
 }
@@ -374,11 +374,10 @@
 % set length of date/place column versus position column in fraction of linewidth before linewidth gets redefined in minipages
 \newlength{\jobdateplacelength}
 \newlength{\jobpositionlength}
-\setlength{\jobdateplacelength}{0.4\linewidth}
-\setlength{\jobpositionlength}{0.6\linewidth}
+\setlength{\jobdateplacelength}{0.5\linewidth}
+\setlength{\jobpositionlength}{0.5\linewidth}
 \newcommand{\job}[4]{%
     \begin{minipage}[t]{\jobdateplacelength}% minipage for left column with date/place
-        \footnotesize
         \begin{minipage}[t]{3mm}% wrap marker in minipage to allow multi-line dates
             \makebox[3mm][c]{\faCalendar}
         \end{minipage}%
@@ -397,7 +396,7 @@
         \end{minipage}%
     \end{minipage}%
     \begin{minipage}[t]{\jobpositionlength}% minipage for position
-        {\large \color{emphasis} #3}
+        {\large \color{emphasis} \textbf{#3}}
     \end{minipage}%
     \ifstrequal{#4}{}{}{\par \vspace{0.1em} \footnotesize #4}
     \par\normalsize
@@ -420,6 +419,9 @@
 \newcommand{\simpleskill}[1]{%
     \textcolor{emphasis}{\textbf{#1}}\par%
 }
+\newcommand{\composedskill}[2]{%
+    \textcolor{emphasis}{\textbf{#1}}\\#2\par%
+}
 \newcommand{\langskill}[3]{%
     \par{
         \includegraphics[align=c,height=1.2em]{#1}
@@ -437,7 +439,7 @@
 \newcommand{\skillsection}[1]{%
     \vspace{0.5em}
     \textit{\large\textbf{\color{accent}#1}}\par
-    \vspace{0.5em}
+    \vspace{0.2em}
 }
 
 % tag (framed word or phrase)
@@ -506,77 +508,7 @@
     \endgroup
 }
 
-% publication
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand*{\ADS}[1]{\textcolor{awesome-skyblue}{\href{#1}{ADS}}}
-\newcommand*{\arXiv}[1]{\textcolor{awesome-skyblue}{\href{#1}{arXiv}}}
-
-\newlength{\pubdatelength}
-\newlength{\pubjournallength}
-\newlength{\publinklength}
-
-% Spacings work erratically. Setting a highlight bar or not redefines \linewidth in a weird way which breaks the spacing and introduces line breaks. I have no idea what exactly causes this problem.
-
-% helper function to set spacings that work empirically
-\newcommand{\pubdefaultspacing}{%
-    \setlength{\pubdatelength}{0.15\linewidth}
-    \setlength{\pubjournallength}{0.65\linewidth}
-    \setlength{\publinklength}{0.20\linewidth}
-}
-
-% helper function to force the publication to use the full width in normal page styles without highlight bar or header
-\newcommand{\pubforcefullwidth}{%
-    \setlength{\pubdatelength}{0.1\textwidth}
-    \setlength{\pubjournallength}{0.8\textwidth}
-    \setlength{\publinklength}{0.1\textwidth}
-}
-
-% \pubforcefullwidth
-\pubdefaultspacing
-
-\newcommand{\publication}[5]{%
-    {\normalsize \color{emphasis}#1\par}
-    \vspace{0.1em}%
-    \begin{minipage}[t]{3mm}%
-        \makebox[3mm][c]{\footnotesize \faGroup}
-    \end{minipage}%
-    \hspace{0.5em}%
-    \begin{minipage}[t]{\dimexpr \linewidth-3mm-0.5em}%
-        {\footnotesize #2\par}
-    \end{minipage}%
-    \par%
-    \vspace{0.25em}%
-    \ifstrequal{#4}{}{%
-        \begin{minipage}[t]{\dimexpr \pubdatelength+\pubjournallength-1.0em}%
-            \footnotesize \makebox[3mm][c]{\faCalendar} \hspace{0.25em} #3
-        \end{minipage}%
-    }{%
-        \begin{minipage}[t]{\dimexpr \pubdatelength-1.0em}%
-            \footnotesize \makebox[3mm][c]{\faCalendar} \hspace{0.25em} #3
-        \end{minipage}%
-    }%
-    \hspace{1.0em}
-    \begin{minipage}[t]{\dimexpr \pubjournallength-1.0em}%
-        \ifstrequal{#4}{}{}{%
-            \begin{minipage}[t]{3mm}%
-                \makebox[3mm][c]{\footnotesize \faBook}
-            \end{minipage}%
-            \hspace{0.5em}%
-            \begin{minipage}[t]{\dimexpr \linewidth-3mm-0.25em}%
-                {\footnotesize #4\par}
-            \end{minipage}%
-        }%
-    \end{minipage}%
-    \hspace{1.0em}
-    \begin{minipage}[t]{\publinklength}%
-        \ifstrequal{#5}{}{}{%
-            \footnotesize \makebox[3mm][c]{\faChain} \hspace{0.25em} #5\par
-        }%
-    \end{minipage}%
-    \par\normalsize
-    \vspace{1.0em}
-}
 
 % achievement
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -587,7 +519,7 @@
     \end{minipage}%
     \hspace{0.5em}%
     \begin{minipage}[t]{\dimexpr \textwidth-0.5em-3mm}%
-        {\normalsize #1\par}
+        {\large #1\par}
     \end{minipage}%
     \par
     \vspace{0.5em}
