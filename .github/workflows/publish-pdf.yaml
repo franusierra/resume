@@ -12,6 +12,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: resume
+      - name: Change build path
+        run: cd resume/src
       - uses: xu-cheng/latex-action@v2
         with:
           root_file: resume/src/resume-en.tex
