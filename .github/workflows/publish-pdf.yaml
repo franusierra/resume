@@ -12,10 +12,10 @@ jobs:
         uses: actions/checkout@v2
         with:
           path: resume
-      - uses: xu-cheng/texlive-action/full@v1
-        with:
+      - name: Set up latex
+        run: sudo apt install texlive-latex-extra
+      - name: Compile pdf
           run: |
-            sudo apt install texlive-fonts-recommended
             cd resume/src
             for f in *.tex;  do xelatex -no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -recorder -output-directory=".."  $f; done
             cd ..
