@@ -15,6 +15,7 @@ jobs:
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
+            sudo apt install texlive-fonts-recommended
             cd resume/src
             for f in *.tex;  do xelatex -no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -recorder -output-directory=".."  $f; done
             cd ..
