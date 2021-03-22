@@ -50,7 +50,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
 \RequirePackage{fontspec}
-\RequirePackage{fontawesome5}
+\RequirePackage{fontawesome}
 \RequirePackage{academicons}
 \RequirePackage{graphbox}
 \RequirePackage{anyfontsize}
