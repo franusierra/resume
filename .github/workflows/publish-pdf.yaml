@@ -16,8 +16,8 @@ jobs:
         with:
           run: |
             cd resume/src
-            for f in *.tex;  do xelatex -no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -recorder -output-directory="../out"  $f; done
-            cd ../out
+            for f in *.tex;  do xelatex -no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -recorder -output-directory=".."  $f; done
+            cd ..
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
