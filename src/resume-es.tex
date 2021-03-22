@@ -1,0 +1,159 @@
+\documentclass[%singlesided,
+               doublesided,
+               paper=a4,
+               fontsize=11pt
+              ]{resume}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set geometry
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setlength\highlightwidth{8cm}
+\setlength\headerheight{4cm}            % note that margintop gets added to this value, i.e. the header bar is 5cm
+\setlength\marginleft{1cm}
+\setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
+\setlength\margintop{1cm}
+\setlength\marginbottom{1cm}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FONTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\RequirePackage{fontspec}
+\setmainfont{Carlito}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COLORS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\colorlet{highlightbarcolor}{lightgray}
+\colorlet{headerbarcolor}{darkgray}
+
+\colorlet{headerfontcolor}{white}
+\definecolor{accent}{RGB}{0, 114, 181}
+\colorlet{heading}{black}
+\colorlet{emphasis}{black}
+\colorlet{body}{black}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% set document
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\name{Francisco Núñez Sierra}
+\tagline{Software Engineer specialized on DevOps and Cloud architectures.\\A puzzle "aficionado", thrilled by how computers works from a young age. \\
+Self-learner determined in improving software skills, crítical thinking and \\creative problem solving.}
+\photo[round]{../assets/pictures/perfil.jpg}{\dimexpr \headerheight-0.7cm}   % make photo exactly match the header with margintop/marginright/marginbottom as margin
+
+\makeheader
+
+\highlightbar{
+    \section[\faUser]{Contact}
+    \email{franusierra@gmail.com}
+    \phone{+34 699 98 40 73}
+    \location{Calle Alconchel N2, Badajoz}
+    \homepage{franusi.com}{https://franusi.com}
+    \github{@franusierra}{https://github.com/franusierra}
+    \linkedin{Fran Núñez}{https://www.linkedin.com/in/franusi/}
+    \section[\faPuzzlePiece]{Skills}
+    \skillsection{Development}
+    \simpleskill{Javascript}
+     - React.js, Node.js  \\
+     - Yarn, Npm, Webpack \\
+    \composedskill{Python}{
+        - Flask, Qt5, OpenCV, Pip 
+    }
+    \composedskill{Java}{
+        - Android SDK, Gradle
+    }
+    \simpleskill{Bash}
+    \skillsection{Operations}
+    \simpleskill{Terraform}
+    \simpleskill{Git}
+    \composedskill{CI/CD}{
+     - Github Actions, Jenkins 
+    }
+    \simpleskill{Docker}
+    \simpleskill{Kubernetes}
+    \simpleskill{Prometheus + Grafana}
+    \skillsection{Cloud Providers}
+    \composedskill{AWS}{
+        - S3, Lambda, Api Gateway \\
+        - EC2, VPC, RDS, Cloudfront
+    }
+    \skillsection{Cloud architecture}
+    \simpleskill{Microservices}
+    \simpleskill{Serverless}
+    \simpleskill{REST \& GraphQL}
+    \vspace{0.5em}
+    \section[\faLanguage]{Languages}
+    \langskill{../assets/icons/united-kingdom.png}{English}{First Certificate}
+    \langskill{../assets/icons/spain.png}{Spanish}{Native}
+
+}
+\mainbar{
+    \section[\faMortarBoard]{Education}
+    \job{08/2016 - 02/2021}
+        {Universidad de Extremadura\\
+         Cáceres}
+        {Software Engineering}
+   
+    \vspace{0.8em}
+    \section[\faGears]{Work history}
+    \job{05/2018 - }
+        {Freelancer.com \& Local Requests}
+        {Freelancer}
+        {}
+    \job{03/2020 - 07/2020}
+        {Sngular, Cáceres}
+        {DevOps Apprentice}
+        {}
+    \job{09/2020 - 02/2021}
+        {SEF, Badajoz}
+        {IT Consultant}
+        {}
+    \vspace{0.8em}
+    \section[\faTrophy]{Achievements}
+    \achievement{Honor enrollment on Internet Programming college subject.}
+    \achievement{My team obtained a ham leg for the application "GoOut!" on the Opendata Cáceres Hackathon (2018).}
+    \achievement{Rank 37 worldwide on Tuenti Challenge 10 (2020).}
+    \vspace{0.8em}
+    \section[\faComments]{Soft Skills}
+    \begin{center}
+        \tag{Comunication}
+        \tag{Teamwork}
+        \tag{Creativity}
+        \tag{Adaptability}
+        \tag{Attention to detail}
+        \tag{Curiosity}
+        \tag{Critical Thinking}
+        
+        
+    \end{center}
+    \medskip
+    \par
+    \vspace{0.8em}
+    \section[\faPaperPlane]{Hobbies}
+    \vspace{2em}
+    % This is taken from AltaCV
+    % see https://github.com/liantze/AltaCV for details
+    \wheelchart{1.5cm}{0.5cm}{% outer and inner diameter
+        6/8em/accent!20/Guitar,          % comma-separated list of
+        4/8em/accent!40/Travelling,    % fraction of 24 / line length / color / label
+        4/8em/accent!80/Virtual Reality,          % here, the color is shades of the accent color
+        4/8em/accent!60/Walk my Dog,
+        8/8em/accent/Programming
+    }
+    
+}
+\makebody
+
+
+
+\end{document}
