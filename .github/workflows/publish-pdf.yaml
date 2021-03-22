@@ -15,10 +15,10 @@ jobs:
       - name: Set up latex
         run: sudo apt install texlive-latex-extra
       - name: Compile pdf
-          run: |
-            cd resume/src
-            for f in *.tex;  do xelatex -no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -recorder -output-directory=".."  $f; done
-            cd ..
+        run: |
+          cd resume/src
+          for f in *.tex;  do xelatex -no-pdf -synctex=1 -interaction=nonstopmode -file-line-error -recorder -output-directory=".."  $f; done
+          cd ..
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
