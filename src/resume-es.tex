@@ -23,7 +23,9 @@
 
 \RequirePackage{fontspec}
 \setmainfont{Carlito}
-
+%\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % COLORS
@@ -47,22 +49,21 @@
 \begin{document}
 
 \name{Francisco Núñez Sierra}
-\tagline{Software Engineer specialized on DevOps and Cloud architectures.\\A puzzle "aficionado", thrilled by how computers works from a young age. \\
-Self-learner determined in improving software skills, crítical thinking and \\creative problem solving.}
+\tagline{\begin{bfseries}Ingeniero Software\end{bfseries} especializado en arquitecturas \begin{bfseries}DevOps\end{bfseries} y \begin{bfseries}Cloud\end{bfseries}. Soy un amante de los rompecabezas y desde pequeño me han fascinado los ordenadores. Me considero una persona autodidacta y dedicada a mejorar en conocimientos informáticos, pensamiento crítico y creatividad.}
 \photo[round]{../assets/pictures/perfil.jpg}{\dimexpr \headerheight-0.7cm}   % make photo exactly match the header with margintop/marginright/marginbottom as margin
 
 \makeheader
 
 \highlightbar{
-    \section[\faUser]{Contact}
+    \section[\faUser]{Contacto}
     \email{franusierra@gmail.com}
     \phone{+34 699 98 40 73}
     \location{Calle Alconchel N2, Badajoz}
     \homepage{franusi.com}{https://franusi.com}
     \github{@franusierra}{https://github.com/franusierra}
     \linkedin{Fran Núñez}{https://www.linkedin.com/in/franusi/}
-    \section[\faPuzzlePiece]{Skills}
-    \skillsection{Development}
+    \section[\faPuzzlePiece]{Habilidades}
+    \skillsection{Desarrollo}
     \simpleskill{Javascript}
      - React.js, Node.js  \\
      - Yarn, Npm, Webpack \\
@@ -73,7 +74,7 @@ Self-learner determined in improving software skills, crítical thinking and \\c
         - Android SDK, Gradle
     }
     \simpleskill{Bash}
-    \skillsection{Operations}
+    \skillsection{Operaciones}
     \simpleskill{Terraform}
     \simpleskill{Git}
     \composedskill{CI/CD}{
@@ -82,57 +83,57 @@ Self-learner determined in improving software skills, crítical thinking and \\c
     \simpleskill{Docker}
     \simpleskill{Kubernetes}
     \simpleskill{Prometheus + Grafana}
-    \skillsection{Cloud Providers}
+    \skillsection{Proveedores Cloud}
     \composedskill{AWS}{
         - S3, Lambda, Api Gateway \\
         - EC2, VPC, RDS, Cloudfront
     }
-    \skillsection{Cloud architecture}
+    \skillsection{Arquitectura Cloud}
     \simpleskill{Microservices}
     \simpleskill{Serverless}
     \simpleskill{REST \& GraphQL}
     \vspace{0.5em}
-    \section[\faLanguage]{Languages}
-    \langskill{../assets/icons/united-kingdom.png}{English}{First Certificate}
-    \langskill{../assets/icons/spain.png}{Spanish}{Native}
+    \section[\faLanguage]{Idiomas}
+    \langskill{../assets/icons/united-kingdom.png}{Ingles}{First Certificate (B2)}
+    \langskill{../assets/icons/spain.png}{Español}{Nativo}
 
 }
 \mainbar{
-    \section[]{Education}
+    \section[\faMortarBoard]{Educación}
     \job{08/2016 - 02/2021}
         {Universidad de Extremadura\\
          Cáceres}
-        {Software Engineering}
+        {Ingeniería de Software}
    
     \vspace{0.8em}
-    \section[\faGears]{Work history}
+    \section[\faGears]{Experiencia Laboral}
     \job{05/2018 - }
-        {Freelancer.com \& Local Requests}
-        {Freelancer}
-        {}
+        {Freelancer.com y Peticiones Locales}
+        {Freelance}
+        {- Peticiones de proyectos en Java, Robotica y OpenCV.}
     \job{03/2020 - 07/2020}
         {Sngular, Cáceres}
-        {DevOps Apprentice}
-        {}
-    \job{09/2020 - 02/2021}
+        {Aprendiz DevOps}
+        {- Aprendizaje sobre AWS, Serverless, Git avanzado y pipelines CI/CD de un mentor.}
+    \job{09/2020 - 03/2021}
         {SEF, Badajoz}
-        {IT Consultant}
-        {}
+        {Consultor IT}
+        {- Ingenieria inversa de firmware y creacion de la página web con e-commerce.}
     \vspace{0.8em}
-    \section[\faTrophy]{Achievements}
-    \achievement{Honor enrollment on Internet Programming college subject.}
-    \achievement{My team obtained a ham leg for the application "GoOut!" on the Opendata Cáceres Hackathon (2018).}
-    \achievement{Rank 37 worldwide on Tuenti Challenge 10 (2020).}
+    \section[\faTrophy]{Logros}
+    \achievement{Matrícula de honor en la asignatura Progarmación en Internet.}
+    \achievement{Mi equipo obtuvo una pata de jamón por la aplicación android "GoOut!" en el Hackathon de Cáceres Opendata (2018).}
+    \achievement{Posición 37 del mundo durante el Tuenti Challenge 10 (2020).}
     \vspace{0.8em}
     \section[\faComments]{Soft Skills}
     \begin{center}
-        \tag{Comunication}
-        \tag{Teamwork}
-        \tag{Creativity}
-        \tag{Adaptability}
-        \tag{Attention to detail}
-        \tag{Curiosity}
-        \tag{Critical Thinking}
+        \tag{Comunicación}
+        \tag{Trabajo en equipo}
+        \tag{Creatividad}
+        \tag{Adaptabilidad}
+        \tag{Detallismo}
+        \tag{Curiosidad}
+        \tag{Razonamiento}
         
         
     \end{center}
@@ -144,11 +145,11 @@ Self-learner determined in improving software skills, crítical thinking and \\c
     % This is taken from AltaCV
     % see https://github.com/liantze/AltaCV for details
     \wheelchart{1.5cm}{0.5cm}{% outer and inner diameter
-        6/8em/accent!20/Guitar,          % comma-separated list of
-        4/8em/accent!40/Travelling,    % fraction of 24 / line length / color / label
-        4/8em/accent!80/Virtual Reality,          % here, the color is shades of the accent color
-        4/8em/accent!60/Walk my Dog,
-        8/8em/accent/Programming
+        6/8em/accent!20/Guitarra,          % comma-separated list of
+        4/8em/accent!40/Viajar,    % fraction of 24 / line length / color / label
+        4/8em/accent!80/Realidad Virtual,          % here, the color is shades of the accent color
+        4/8em/accent!60/Pasear a mi perro,
+        8/8em/accent/Programar 
     }
     
 }

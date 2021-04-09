@@ -15,7 +15,9 @@
 \setlength\marginright{\marginleft}      % needs to be 1.5 times to be actually equal. why?
 \setlength\margintop{1cm}
 \setlength\marginbottom{1cm}
-
+%\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FONTS
@@ -46,8 +48,8 @@
 \begin{document}
 
 \name{Francisco Núñez Sierra}
-\tagline{Software Engineer specialized on DevOps and Cloud architectures.\\A puzzle "aficionado", thrilled by how computers works from a young age. \\
-Self-learner determined in improving software skills, crítical thinking and \\creative problem solving.}
+\tagline{\begin{bfseries}Software Engineer\end{bfseries} specialized on \begin{bfseries}DevOps\end{bfseries} and \begin{bfseries}Cloud\end{bfseries} architectures. Puzzle lover and interested in how computers works from a young age.
+I consider myself a self-learner determined in improving software skills, crítical thinking and creative problem solving.}
 \photo[round]{../assets/pictures/perfil.jpg}{\dimexpr \headerheight-0.7cm}   % make photo exactly match the header with margintop/marginright/marginbottom as margin
 
 \makeheader
@@ -83,7 +85,7 @@ Self-learner determined in improving software skills, crítical thinking and \\c
     \simpleskill{Prometheus + Grafana}
     \skillsection{Cloud Providers}
     \composedskill{AWS}{
-        - S3, Lambda, Api Gateway \\
+        - S3, EKS, Lambda, Api Gateway \\
         - EC2, VPC, RDS, Cloudfront
     }
     \skillsection{Cloud architecture}
@@ -97,7 +99,7 @@ Self-learner determined in improving software skills, crítical thinking and \\c
 
 }
 \mainbar{
-    \section[]{Education}
+    \section[\faMortarBoard]{Education}
     \job{08/2016 - 02/2021}
         {Universidad de Extremadura\\
          Cáceres}
@@ -107,16 +109,16 @@ Self-learner determined in improving software skills, crítical thinking and \\c
     \section[\faGears]{Work history}
     \job{05/2018 - }
         {Freelancer.com \& Local Requests}
-        {Freelancer}
-        {}
+        {Freelance}
+        {- Independent requests on Java Projects, Robotics and OpenCV.}
     \job{03/2020 - 07/2020}
         {Sngular, Cáceres}
         {DevOps Apprentice}
-        {}
+        {- Learning AWS, Serverless, advanced Git and CI/CD pipelines from a mentor.}
     \job{09/2020 - 02/2021}
         {SEF, Badajoz}
         {IT Consultant}
-        {}
+        {- Reverse engineering firmware and creating the business website and e-commerce.}
     \vspace{0.8em}
     \section[\faTrophy]{Achievements}
     \achievement{Honor enrollment on Internet Programming college subject.}
@@ -129,7 +131,7 @@ Self-learner determined in improving software skills, crítical thinking and \\c
         \tag{Teamwork}
         \tag{Creativity}
         \tag{Adaptability}
-        \tag{Attention to detail}
+        \tag{Thoroughness}
         \tag{Curiosity}
         \tag{Critical Thinking}
         
@@ -146,7 +148,7 @@ Self-learner determined in improving software skills, crítical thinking and \\c
         6/8em/accent!20/Guitar,          % comma-separated list of
         4/8em/accent!40/Travelling,    % fraction of 24 / line length / color / label
         4/8em/accent!80/Virtual Reality,          % here, the color is shades of the accent color
-        4/8em/accent!60/Walk my Dog,
+        4/8em/accent!60/Walking Dog,
         8/8em/accent/Programming
     }
     

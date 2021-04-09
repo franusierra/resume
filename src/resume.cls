@@ -263,12 +263,13 @@
                     {\Huge\bfseries\color{headerfontcolor}\MakeUppercase{\@name}\par}
                 \end{minipage}%
                 \vfill%
-                \begin{minipage}[b][\dimexpr \headerheight-2em-\marginbottom]{\linewidth}%
-                    {\fontsize{14}{16}\selectfont\bfseries\color{headerfontcolor}\@tagline\par}
+                \begin{minipage}[b][\dimexpr \headerheight-2em-\marginbottom]{0.96\linewidth}%
+                    {\fontsize{14}{16}\justify\selectfont\color{headerfontcolor}\@tagline\par}
                 \end{minipage}%
+
         % finish the minipages for text and photo if photo is given
         \ifdef{\@photodiameter}{%
-            \end{minipage}\hfil%
+            \end{minipage}\hsfill
             \begin{minipage}[t]{\@photodiameter}                                % to top align name and photo add [t] here
                 \vspace{0cm}
     			% format as square or round
